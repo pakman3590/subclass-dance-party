@@ -22,12 +22,35 @@ $(document).ready(function() {
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+  $('.lineupButton').on('click', function(event) {
+    // dancer array var
+    let dancers = window.dancers;
+    // have dancer arrays
+    let blinky = [];
+    let jumpy = [];
+    let spazzy = [];
+    // loop through dancer array
+    for (let i = 0; i < dancers.length; i ++) {
+      // conditional for dancers that match blinky instance, push to blinky array
+      if (dancers[i] instanceof BlinkyDancer) {
+        blinky.push(dancers[i]);
+      } /* else if (dancers[i] instanceof ) {
+        jumpy.push(dancers[i]);
+      } else if (dancers[i] instanceof ) {
+        spazzy.push(dancers[i]);
+      } */
+    }
+    blinky[0].lineup(blinky);
+    // jumpy[0].lineup(jumpy);
+    // spazzy[0].lineup(spazzy);
   });
 });
-
