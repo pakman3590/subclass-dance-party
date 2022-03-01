@@ -1,6 +1,7 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.timeBetweenSteps = timeBetweenSteps;
+
   this.step();
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -21,7 +22,7 @@ BlinkyDancer.prototype.step = function() {
 
 BlinkyDancer.prototype.lineup = function (array) {
   // set starting point
-  let lineTop = 50;
+  let lineTop = '20%';
   let lineLeft = 50;
   let widthInterval = ($('body').height() - 100) / array.length;
   // loop again, set style to the starting point

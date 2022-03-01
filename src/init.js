@@ -21,15 +21,16 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
+
+
 
   $('.lineupButton').on('click', function(event) {
     // dancer array var
@@ -41,16 +42,21 @@ $(document).ready(function() {
     // loop through dancer array
     for (let i = 0; i < dancers.length; i ++) {
       // conditional for dancers that match blinky instance, push to blinky array
+      //console.log(dancers[i])
       if (dancers[i] instanceof BlinkyDancer) {
         blinky.push(dancers[i]);
-      } /* else if (dancers[i] instanceof ) {
+      } if (dancers[i] instanceof JumpyDancer) {
         jumpy.push(dancers[i]);
-      } else if (dancers[i] instanceof ) {
+      } if (dancers[i] instanceof SpazzyDancer) {
         spazzy.push(dancers[i]);
-      } */
+      }
     }
-    blinky[0].lineup(blinky);
-    // jumpy[0].lineup(jumpy);
-    // spazzy[0].lineup(spazzy);
+    if (blinky[0]) { blinky[0].lineup(blinky); }
+    console.log('blinky lineup');
+    if (jumpy[0]) { jumpy[0].lineup(jumpy); }
+    console.log('jumpy lineup');
+    if (spazzy[0]) { spazzy[0].lineup(spazzy); }
   });
 });
+
+//
